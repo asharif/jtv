@@ -4,7 +4,7 @@ The results are sorted by highest cpu hogs.  Time alive is also shown.  Note tha
 Only on GNU/Linux.
 
 Usage:
-etv <pid>
+jtv <pid>
 
 #Demo
 ![alt tag](jtv-c.gif)
