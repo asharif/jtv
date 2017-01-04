@@ -8,4 +8,4 @@ fi
 
 export jtvpid=$1
 
-jstack $jtvpid > jstack_$jtvpid; ps -Lo pid,lwp,pcpu,time $jtvpid | (read; cat) | sort -n -k 3 -r | awk '{printf("%d\t%d\t%x\t%f\t%s\n",$1,$2,$2,$3,$4); system("printf \"%x\n\" \"" $2 "\" | grep -A 10 `< /dev/stdin` jstack_$jtvpid; echo '--------------------'   " ); }'; rm -f jstack_$jtvpid
+jstack $jtvpid > jstack_$jtvpid; ps -Lo pid,lwp,pcpu,time $jtvpid | (read; cat) | sort -n -k 3 -r | awk '{printf("%d\t%d\t%x\t%f\t%s\n",$1,$2,$2,$3,$4); system("printf \"nid=0x%x\n\" \"" $2 "\" | grep -w -A 10 `< /dev/stdin` jstack_$jtvpid; echo '--------------------'   " ); }'; rm -f jstack_$jtvpid
